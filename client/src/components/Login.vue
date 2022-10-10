@@ -43,18 +43,18 @@
                 </div>
               </div>
               <br />
-              <div class="row font2">
-                <div>
+              <div>
+                <div><center>
                   <button
                     required
                     type="submit"
                     class="btn btn-dark"
                     style="width: 50%;"
-                  >
-                    <i class="fas fa-key"></i> Login 
                     
-
-                  </button>
+                  >
+                     Login
+									</button></center>
+                  
                 </div>
                 <div class="col">
                   

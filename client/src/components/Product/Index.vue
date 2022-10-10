@@ -1,37 +1,71 @@
 <template>
-	<div>
-		<h2>Get all blogs</h2>
- 
-		<p><button v-on:click="logout">Logout</button></p>
-		<h4>จํานวน blog {{ blogs.length }}</h4>
-		<p><button v-on:click="navigateTo('/blog/create')">สร้าง blog</button></p>
-		<div v-for="blog in blogs" v-bind:key="blog.id">
-			<p>id: {{ blog.id }}</p>
-			<p>title: {{ blog.title }}</p>
-			<p>content: {{ blog.content }}</p>
-			<p>category: {{ blog.category }}</p>
-			<p>status: {{ blog.status }}</p>
-			<p>
-				<button v-on:click="navigateTo('/blog/' + blog.id)">ดู blog</button>
-				<button v-on:click="navigateTo('/blog/edit/' + blog.id)">
-					แก้ไข blog
-				</button>
-				<button v-on:click="deleteBlog(blog)">ลบข้อมูล</button>
-			</p>
-			<hr />
+	<div class="container-fluid">
+		<back-header />
+
+		<div class="container-fluid">
+			<br />
+			<button
+				style="float: right"
+				type="button"
+				class="btn btn-success font2"
+				v-on:click="navigateTo('/Product/create')"
+			>
+				<i class="fas fa-plus-circle"></i> Add Product
+			</button>
+		</div>
+		<br /><br /><br />
+
+		<div class="container-fluid">
+			<div v-for="Product in Products" v-bind:key="Product.id" class="blog-list">
+				<table class="table table-bProducted">
+					<tbody>
+						<th width="10%">{{ Product.product_name }}</th>
+						<th width="8%">
+							<span style="color: red">Quantity : </span>{{ Product.quantity }}
+						</th>
+						<th width="10%">
+							<span style="color: yellowgreen">Size : </span>{{ Product.size }}
+						</th>
+						<th width="10%">
+							<span style="color: green">Sweet : </span>{{ Product.sweet }}
+						</th>
+						<th width="10%">
+							<span style="color: purple"></span>{{ Product.updatedAt }}
+						</th>
+						<th width="10%">
+							<button
+								class="btn btn-primary btn-lg"
+								v-on:click="navigateTo('/Product/edit/' + Product.id)"
+							>
+								Edit
+							</button>
+							<button
+								class="btn btn-danger btn-lg"
+								v-on:click="deleteProduct(Product)"
+							>
+								Delete
+							</button>
+						</th>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </template>
+
 <script>
-import BlogsService from "@/services/BlogsService";
+import ProductsService from "@/services/ProductService";
+import _ from "lodash";
+
 export default {
 	data() {
 		return {
-			blogs: [],
+			Products: [],
+			BASE_URL: "http://localhost:8081/assets/uploads/",
 		};
 	},
 	async created() {
-		this.blogs = (await BlogsService.index()).data;
+		this.Products = (await ProductsService.index()).data;
 	},
 	methods: {
 		logout() {
@@ -44,11 +78,11 @@ export default {
 		navigateTo(route) {
 			this.$router.push(route);
 		},
-		async deleteBlog(blog) {
+		async deleteProduct(Product) {
 			let result = confirm("Want to delete?");
 			if (result) {
 				try {
-					await BlogsService.delete(blog);
+					await ProductsService.delete(Product);
 					this.refreshData();
 				} catch (err) {
 					console.log(err);
@@ -56,7 +90,7 @@ export default {
 			}
 		},
 		async refreshData() {
-			this.blogs = (await BlogsService.index()).data;
+			this.Products = (await ProductsService.index()).data;
 		},
 	},
 };

@@ -14,7 +14,9 @@
 									<label for="exampleInputEmail1">Product Name</label>
 									<div class="input-group mb-3">
 										<div class="input-group-prepend">
-											
+											<span class="input-group-text" id="basic-addon1"
+												><i class="fas fa-box"></i
+											></span>
 										</div>
 										<input
 											required
@@ -27,38 +29,24 @@
 								</div>
 								<br />
 								<div class="form-group">
-									<label for="exampleInputEmail1">Product Description</label>
+									<label for="exampleInputEmail1">Description</label>
 									<div class="input-group mb-3">
 										<div class="input-group-prepend">
-											
-										</div>
-										<input
-											required
-											type="textarea"
-											class="form-control"
-											placeholder="Description"
-                      />
-									</div>
-								</div>
-								<br>
-                <div class="form-group">
-									<label for="exampleInputEmail1">Product Price</label>
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-											
+											<span class="input-group-text" id="basic-addon1"
+												><i class="fas fa-box"></i
+											></span>
 										</div>
 										<input
 											required
 											type="text"
 											class="form-control"
-											placeholder="Price"
+											placeholder="Description"
 											v-model="blog.content"
 										/>
 									</div>
 								</div>
-                
-                
-								<label for="exampleInputEmail1">stationery picture</label>
+								<br>
+								<label for="exampleInputEmail1">Book picture</label>
 								<div class="blog-tab">
 									<transition name="fade">
 										<div
@@ -124,6 +112,40 @@
 										<div class="clearfix"></div>
 									</div>
 								</form>
+								<div class="form-group">
+									<label for="exampleInputEmail1">Category</label>
+									<div class="input-group mb-3">
+										<select class="form-control" v-model="blog.category" required>
+											<option disabled value="">
+												Please select a category
+											</option>
+											<option value="Pen">Pen</option>
+											<option value="Pencil">Pencil</option>
+											<option value="notepad">notepad</option>
+											<option value="ruler">ruler</option>
+											<option value="Eraser and Eraser Tape">Eraser and Eraser Tape</option>
+											<option value="Magic pens and highlighters">Magic pens and highlighters</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="exampleInputEmail1">Price</label>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text" id="basic-addon1"
+												><i class="fas fa-server"></i
+											></span>
+											<input
+											required
+											type="text"
+											class="form-control"
+											placeholder="Price"
+											v-model="blog.status"
+										/>
+										</div>
+										
+									</div>
+								</div>
 								<br />
 								<div class="row">
 									<div class="col">
