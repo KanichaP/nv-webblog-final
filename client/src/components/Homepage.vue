@@ -1,58 +1,28 @@
 <template>
 	<div class="container-fluid">
-		<back-header />
 		<div class="container-fluid">
 			<br />
 
 			<div class="hero-wrapper">
 				<img
-					src="../assets/Stationeryy.jpg"
+					src="../assets/store.jpg"
 					class="logo"
-					style="float: left; width: 20%"
+					style="float: left; width: 30%"
 				/>
 				<h1><b>Nu Stationery</b></h1>
 				<h2>Server side web programming project</h2>
-				<h3>This website for ordering milk tea</h3>
+				<h3>This website for stationery shop</h3>
 				<p>
-					<i class="fas fa-user-circle"></i> Nu Stationery &nbsp;&nbsp;<i
+					<i class="fas fa-user-circle"></i> Setthapong Lertritrungrot &nbsp;&nbsp;<i
 						class="fas fa-envelope"
 					></i>
 					<a href="mailto:setthapongl63@nu.ac.th" style="color: #000000"
 						>setthapongl63@nu.ac.th</a
 					>
-					<br />
 					
 				</p>
 			</div>
 
-			<div class="container-fluid">
-				<div class="container">
-					<div class="blog-wrapper">
-						<h4><i class="far fa-lightbulb"></i> Instructions</h4>
-						<hr />
-						<center>
-							<img
-								src="../assets/store.png"
-								width="20%"
-								class="d-inline-block align-top"
-								alt=""
-								loading="lazy"
-							/>
-						</center>
-						<br /><br />
-						<ui>
-							<li>
-								User must be logged in to use Boba Chanom's ordering system.
-							</li>
-							<li>Users can select products to order.</li>
-							<li>Users can add, delete and edit products.</li>
-							<li>Users can view information of each user.</li>
-							<li>etc.</li>
-						</ui>
-					</div>
-					<div class="footer"></div>
-				</div>
-			</div>
 		</div>
 	</div>
 </template>
@@ -68,7 +38,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	border-radius: 5px;
-	background: #e7befa;
+	background: rgb(201, 250, 238);
 	height: 250px;
 	color: #000000;
 	padding: 20px;

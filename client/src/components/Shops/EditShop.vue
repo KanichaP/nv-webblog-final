@@ -1,33 +1,17 @@
 <template>
 	<div>
 		<main-header navsel="back"></main-header>
-
 		<div class="container-fluid">
 			
 			<div class="container-fluid">
 				<div class="container">
-					<div class="blog-wrapper">
-						<h4><i class="fas fa-boxes"></i> Edit Product</h4>
+					<div class="shop-wrapper">
+						<h4><i class="fas fa-boxes"></i> Add Product</h4>
 						<br />
 						<span class="font2">
-							<form v-on:submit.prevent="editBlog">
-								<label for="exampleInputEmail1">Product Name</label>
-								<div class="input-group mb-3">
-									<div class="input-group-prepend">
-										<span class="input-group-text" id="basic-addon1"
-											><i class="fas fa-box"></i
-										></span>
-									</div>
-									<input
-										type="text"
-										class="form-control"
-										v-model="blog.title"
-									/>
-								</div>
-
-								<br />
+							<form v-on:submit.prevent="editshop">
 								<div class="form-group">
-									<label for="exampleInputEmail1">Description</label>
+									<label for="exampleInputEmail1">Shop Name</label>
 									<div class="input-group mb-3">
 										<div class="input-group-prepend">
 											<span class="input-group-text" id="basic-addon1"
@@ -38,15 +22,43 @@
 											required
 											type="text"
 											class="form-control"
-											v-model="blog.content"
+											placeholder="Name"
+											v-model="shop.name"
 										/>
 									</div>
 								</div>
-								<transition name="fade">
-									<div class="thumbnail-pic" v-if="blog.thumbnail != 'null'">
-										<img :src="BASE_URL + blog.thumbnail" alt="thumbnail" />
+								<br />
+								<div class="form-group">
+									<label for="exampleInputEmail1">Location</label>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text" id="basic-addon1"
+												><i class="fas fa-box"></i
+											></span>
+										</div>
+										<input
+											required
+											type="text"
+											class="form-control"
+											placeholder="Description"
+											v-model="shop.location"
+										/>
 									</div>
-								</transition>
+								</div>
+								<br>
+								<label for="exampleInputEmail1"><Picture></Picture></label>
+								<div class="shop-tab">
+									<transition name="fade">
+										<div
+											class="thumbnail-pic"
+											v-if="shop.thumbnail != 'null'"
+											align="center"
+										>
+											<img :src="BASE_URL + shop.thumbnail" alt="thumbnail" />
+										</div>
+									</transition>
+								</div>
+								<br />
 								<form enctype="multipart/form-data" novalidate>
 									<div class="dropbox">
 										<input
@@ -100,41 +112,8 @@
 										<div class="clearfix"></div>
 									</div>
 								</form>
-
+								
 								<br />
-								<div class="form-group">
-									<label for="exampleInputEmail1">Category</label>
-									<div class="input-group mb-3">
-										<select
-											class="form-control"
-											v-model="blog.category"
-											required
-										>
-											<option disabled value="">
-												Please select a category
-											</option>
-											<option value="Pen">Pen</option>
-											<option value="Pencil">Pencil</option>
-											<option value="notepad">notepad</option>
-											<option value="ruler">ruler</option>
-											<option value="Eraser and Eraser Tape">Eraser and Eraser Tape</option>
-											<option value="Magic pens and highlighters">Magic pens and highlighters</option>
-										</select> 
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail1">Price</label>
-									<div class="input-group mb-3">
-										<div class="input-group-prepend">
-										</div>
-										<input
-											required
-											type="text"
-											class="form-control"
-											v-model="blog.content"
-										/>
-									</div>
-								</div>
 								<div class="row">
 									<div class="col">
 										<button
@@ -150,22 +129,23 @@
 											class="btn btn-danger"
 											type="button"
 											style="width: 100%"
-											v-on:click="navigateTo('/blogs')"
+											v-on:click="navigateTo('/shops')"
 										>
 											<i class="fas fa-angle-double-left"></i> Back
 										</button>
 									</div>
 								</div>
-							</form></span
-						>
+							</form>
+						</span>
 					</div>
+					<div class="footer"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
 <script>
-import BlogsService from "@/services/BlogsService";
+import shopsService from "@/services/ShopService";
 import VueCkeditor from "vue-ckeditor2";
 import UploadService from "@/services/UploadService";
 const STATUS_INITIAL = 0,
@@ -184,13 +164,11 @@ export default {
 			uploadedFileNames: [],
 			pictures: [],
 			pictureIndex: 0,
-			blog: {
-				title: "",
+			shop: {
+				name: "",
 				thumbnail: "null",
 				pictures: "null",
-				content: "",
-				category: "",
-				status: "",
+				location: "",
 			},
 			config: {
 				toolbar: [
@@ -301,11 +279,11 @@ export default {
 		};
 	},
 	methods: {
-		async editBlog() {
+		async editshop() {
 			try {
-				await BlogsService.put(this.blog);
+				await shopsService.put(this.shop);
 				this.$router.push({
-					name: "blogs",
+					name: "shops",
 				});
 			} catch (err) {
 				console.log(err);
@@ -391,14 +369,14 @@ export default {
 		},
 		useThumbnail(filename) {
 			console.log(filename);
-			this.blog.thumbnail = filename;
+			this.shop.thumbnail = filename;
 		},
 	},
 	async created() {
 		this.reset();
 		try {
-			let blogId = this.$route.params.blogId;
-			this.blog = (await BlogsService.show(blogId)).data;
+			let shopId = this.$route.params.shopId;
+			this.shop = (await shopsService.show(shopId)).data;
 		} catch (error) {
 			console.log(error);
 		}
@@ -488,13 +466,13 @@ ul.pictures li img {
 	padding: 0;
 	width: 100%;
 }
-.blog-wrapper {
+.shop-wrapper {
 	margin-top: 20px;
 	padding: 40px;
 	height: 100%;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.blog-tab {
+.shop-tab {
 	padding: 10px;
 	background-color: #d3d3d3;
 	text-align: left;

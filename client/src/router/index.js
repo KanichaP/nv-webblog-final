@@ -7,16 +7,20 @@ import UserCreate from '@/components/Users/CreateUser'
 import UserEdit from '@/components/Users/EditUser'
 import UserShow from '@/components/Users/ShowUser'
 import Login from '@/components/Login'
+import Homepage from '@/components/Homepage'
 
 import BlogIndex from '@/components/Blogs/Index'
 import BlogCreate from '@/components/Blogs/CreateBlog'
 import BlogEdit from '@/components/Blogs/EditBlog'
 import BlogShow from '@/components/Blogs/ShowBlog'
 
-import ProductIndex from '@/components/Product/Index'
-import ProductCreate from '@/components/Product/CreateProduct'
-import ProductEdit from '@/components/Product/EditProduct'
-import ProductShow from '@/components/Product/ShowProduct'
+import ShopIndex from '@/components/Shops/Index'
+import ShopCreate from '@/components/Shops/CreateShop'
+import ShopEdit from '@/components/Shops/EditShop'
+import ShopShow from '@/components/Shops/ShowShop'
+
+
+
 
 import CommentIndex from '@/components/Comments/Index'
 
@@ -52,6 +56,12 @@ export default new Router({
       name: 'login',
       component: Login
     },
+
+    {
+      path: '/homepage',
+      name: 'homepage',
+      component: Homepage
+    },
     {
       path: '/blogs',
       name: 'blogs',
@@ -73,27 +83,7 @@ export default new Router({
       component: BlogShow
     },
 
-    {
-      path: '/Products',
-      name: 'Products',
-      component: ProductIndex
-    },
-    {
-      path: '/Product/create',
-      name: 'Product-create',
-      component: ProductCreate
-    },
-    {
-      path: '/Product/edit/:ProductId',
-      name: 'Product-edit',
-      component: BlogEdit
-    },
-    {
-      path: '/Product/:ProductId',
-      name: 'Product',
-      component: ProductShow
-    },
-
+    
     {
       path: '/comments',
       name: 'comments',
@@ -103,6 +93,28 @@ export default new Router({
       path: '/upload',
       name: 'upload',
       component: Upload
-    }
+    },
+
+    {
+      path: '/shops',
+      name: 'shops',
+      component: ShopIndex
+    },
+    {
+      path: '/shop/create',
+      name: 'shop-create',
+      component: ShopCreate
+    },
+    {
+      path: '/shop/edit/:shopId',
+      name: 'shop-edit',
+      component: ShopEdit
+    },
+    {
+      path: '/shop/:shopId',
+      name: 'shop',
+      component: ShopShow
+    },
+    
   ]
 })

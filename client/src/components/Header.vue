@@ -4,8 +4,8 @@
 			<a class="navbar-brand" href="#">
 				<img style="color: Black"
 					src="../assets/stationery.png"
-					width="30"
-					height="30"
+					width="45"
+					height="45"
 					class="d-inline-block align-top"
 					alt=""
 				/>
@@ -13,7 +13,9 @@
 				<span class="font1">&nbsp;|&nbsp;</span>
 				<span class="font1"><router-link :to="{ name: 'homepage' }"><span style="color: Black"><b>Homepage</b></span></router-link></span>
 				<span class="font1">&nbsp;|&nbsp;</span>
-				<span class="font1"><router-link :to="{ name: 'blogs' }"><span style="color: Black"><b>equipment</b></span></router-link></span>
+				<span class="font1"><router-link :to="{ name: 'blogs' }"><span style="color: Black"><b>Equipment</b></span></router-link></span>
+				<span class="font1">&nbsp;|&nbsp;</span>
+				<span class="font1"><router-link :to="{ name: 'shops' }"><span style="color: Black"><b>Stationery shop</b></span></router-link></span>
 				<span class="font1">&nbsp;|&nbsp;</span>
 				<span v-on:click.prevent="logout" style="color: Black"
 					><i class="fas fa-sign-in-alt"></i><b> Logout</b></span
