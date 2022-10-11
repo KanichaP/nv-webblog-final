@@ -7,7 +7,7 @@
 				<img
 					src="../assets/store.jpg"
 					class="logo"
-					style="float: left; width: 30%"
+					style="float: left; width: 35%"
 				/>
 				<h1><b>Nu Stationery</b></h1>
 				<h2>Server side web programming project</h2>
@@ -18,6 +18,13 @@
 					></i>
 					<a href="mailto:setthapongl63@nu.ac.th" style="color: #000000"
 						>setthapongl63@nu.ac.th</a
+					>
+					<br>
+					<i class="fas fa-user-circle"></i> Kanicha Pojanapimond &nbsp;&nbsp;<i
+						class="fas fa-envelope"
+					></i>
+					<a href="mailto:Kanichap63@nu.ac.th" style="color: #000000"
+						>Kanichap63@nu.ac.th</a
 					>
 					
 				</p>
@@ -156,4 +163,5 @@
 .footer {
 	margin-top: 50px;
 }
+
 </style>
