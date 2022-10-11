@@ -1,7 +1,5 @@
 ﻿# nv-webblog-final 
-<b><center><font size=20><font color="#8B4513">
-
- 🔆 PLEAS ENJOY MY PROJECT 🔆</font><br></center></b><br>
+<b><center><font size=20><font color="#8B4513">🔆 PLEAS ENJOY MY PROJECT 🔆</font><br></center></b><br>
 <b>📍This website for stationery shop</b><br><br>
 <b>◽️ By</b><br>
 🔸Setthapong Lertritrungrot(Boom)<br>
